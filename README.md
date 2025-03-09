@@ -15,7 +15,7 @@ Lifecycle Methods (Class components) – componentDidMount, componentDidUpdate, 
 Hooks (Functional components) – useEffect, useContext, useRef, etc  
 
 🔹 React Ecosystem    
-Redux / Context API – State management solutions.
-React Router – For navigation in Single Page Applications (SPAs).
-Material UI / Tailwind CSS – Styling solutions.
-Next.js – A React framework for SSR (Server-Side Rendering) & better SEO.
+Redux / Context API – State management solutions.     
+React Router – For navigation in Single Page Applications (SPAs).     
+Material UI / Tailwind CSS – Styling solutions.    
+Next.js – A React framework for SSR (Server-Side Rendering) & better SEO.    

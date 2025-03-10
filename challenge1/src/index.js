@@ -11,7 +11,7 @@ const skills = [
   {
     skill: "JavaScript",
     level: "advanced",
-    color: "#EFD81D",
+    color: "lightblue",
   },
   {
     skill: "Web Design",
@@ -29,9 +29,9 @@ const skills = [
     color: "#60DAFB",
   },
   {
-    skill: "Svelte",
-    level: "beginner",
-    color: "#FF3B00",
+    skill: "JAVA Developer",
+    level: "advanced",
+    color: "red",
   },
 ];
 

@@ -1,74 +1,185 @@
-/* Centering the main container */
+/* ---- General Styling ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---- Main Container ---- */
 .main {
-  display: grid;
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #e1dede;
+  background: linear-gradient(135deg, #89cff0, #1e3a8a);
 }
 
-/* Box styling */
+/* ---- Glassmorphic Box ---- */
 .box {
-  background: rgb(255, 183, 238);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.1);
-  width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  width: 320px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   text-align: center;
-
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.6s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Step & Count sections */
-.step,
-.count {
+.box:hover {
+  transform: scale(1.02);
+}
+
+/* ---- Title Styling ---- */
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Step Slider Styling ---- */
+.step {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  color: white;
 }
 
-/* Button styling */
+.step input {
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  height: 6px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  margin: 20px;
+}
+
+.step input::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.step input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: #facc15;
+}
+
+.step p{
+  font-size: 30px;
+  font-weight: bolder;
+  font-style: italic;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 5px;
+}
+
+/* ---- Counter Styling ---- */
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.count input {
+  width: 80px;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.count input:focus {
+  border-color: #facc15;
+  box-shadow: 0px 0px 12px rgba(250, 204, 21, 0.4);
+}
+
+/* ---- Button Styling ---- */
 button {
-  background-color: #007bff;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 100%;
+  padding: 12px 16px;
+  border-radius: 50%;
   cursor: pointer;
-  font-weight: bolder;
-  transition: background 0.3s ease-in-out;
-
+  font-weight: bold;
+  font-size: 22px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  background-color: #0056b3;
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.4);
 }
 
-/* Styling for Minus and Plus buttons separately */
-.minus {
-  background-color: #ff4d4d;
-  box-shadow: 5px 5px 8px rgb(233, 70, 70);
-  font-size: 40px;
-}
-
-.minus:hover {
-  background-color: #cc0000;
-}
-
+/* ---- Minus & Plus Buttons ---- */
+.minus,
 .plus {
-  background-color: #28a745;
-  box-shadow: 5px 5px 8px rgb(81, 225, 81);
-  font-size: 40px;
+  background: rgba(40, 167, 69, 0.5); /* Green color */
+  box-shadow: 4px 4px 12px rgba(0, 255, 0, 0.4);
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px; /* Square with rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  margin: 30px;
 }
 
+.minus:hover,
 .plus:hover {
-  background-color: #1e7e34;
+  background: rgba(0, 255, 0, 0.7);
+  transform: scale(1.5);
 }
 
-/* Paragraph styling */
-p {
-  font-size: 20px;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* ---- Date Display Styling ---- */
+.date-text {
+  font-size: 25px;
   font-weight: bold;
-  color: #020202;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(255, 2, 2);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

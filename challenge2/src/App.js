@@ -6,52 +6,58 @@ export default function App() {
   const [count, setCount] = useState(0);
 
   const date = new Date();
-  date.setDate(date.getDate() + count);
+  date.setDate(date.getDate() + count + 1);
 
-  function handleStepMinus() {
-    step > 1 ? setStep(step - 1) : setStep(step);
-  }
-
-  function handleStepPlus() {
-    setStep(step + 1);
-  }
-
-  function handleCountMinus() {
-    setCount(count - step);
-  }
-
-  function handleCountPlus() {
-    setCount(count + step);
+  function handleButton() {
+    setCount(0);
+    setStep(1);
   }
 
   return (
     <div className="main">
       <div className="box">
+        <h2>Dynamic Counter</h2>
         <div className="step">
-          <button className="minus" onClick={handleStepMinus}>
-            -
-          </button>
-          <p>Step : {step}</p>
-          <button className="plus" onClick={handleStepPlus}>
-            +
-          </button>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value={step}
+            onChange={(e) => setStep(Number(e.target.value))}
+          />
+          <p className="text-animate"> {step}</p>
         </div>
 
         <div className="count">
-          <button className="minus" onClick={handleCountMinus}>
+          <button className="minus" onClick={() => setCount((c) => c - step)}>
             -
           </button>
-          <p>Count : {count}</p>
-          <button className="plus" onClick={handleCountPlus}>
+          <input
+            type="text"
+            value={count}
+            onChange={(e) => setCount(Number(e.target.value))}
+          />
+          <button className="minus" onClick={() => setCount((c) => c + step)}>
             +
           </button>
         </div>
         <div>
-          <p>
-            {Math.abs(count)} days {count >= 0 ? "from today" : "ago"} is{" "}
+          <p className="data-text">
+            {count === 0
+              ? "Today is "
+              : count >= 0
+              ? `${Math.abs(count)} ${
+                  count === 1 ? " day " : "days "
+                } from today is `
+              : `${Math.abs(count)} ${
+                  count === -1 ? " day " : "days "
+                } ago was `}
             {date.toDateString()}
           </p>
         </div>
+        <button className="reset" onClick={handleButton}>
+          Reset
+        </button>
       </div>
     </div>
   );

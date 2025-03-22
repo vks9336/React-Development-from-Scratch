@@ -34,14 +34,40 @@ export default function App() {
   );
 
   function TextExpander({
-    children,
-    collapsedNumWords = 0,
-    expandButtonText,
-    collapseButtonText,
-    buttonColor = "#fcc334",
-    expanded,
+    collapsedNumWords = 10,
+    expandButtonText = "Show more",
+    collapseButtonText = "Show less",
+    buttonColor = "blue",
+    expanded = false,
     className = "",
+    children,
   }) {
-    return <p className={className}>{children}</p>;
+    const [isExpanded, setIsExpanded] = useState(expanded);
+
+    const displayText = isExpanded
+      ? children
+      : children.split(" ").slice(0, collapsedNumWords).join(" ") + "...";
+
+    const buttonStyle = {
+      backgroud: "none",
+      backgroudColor: "white",
+      border: "none",
+      font: "inherit",
+      cursor: "pointer",
+      marginLeft: "6px",
+      color: buttonColor,
+    };
+
+    return (
+      <div className={className}>
+        <span>{displayText}</span>
+        <button
+          style={buttonStyle}
+          onClick={() => setIsExpanded((exp) => !exp)}
+        >
+          {isExpanded ? collapseButtonText : expandButtonText}
+        </button>
+      </div>
+    );
   }
 }

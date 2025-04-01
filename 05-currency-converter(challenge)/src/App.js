@@ -51,16 +51,16 @@ export default function App() {
     [amount, firstCurrency, secondCurrency]
   );
 
-  console.log(convertedCurrency);
-
   return (
-    <div>
+    <div className="main">
       <input
+        className="amount"
         value={amount}
         type="Number"
         onChange={(e) => setAmount(Number(e.target.value))}
       />
       <select
+        className="first-currency"
         value={firstCurrency}
         onChange={(e) => setFirstCurrency(e.target.value)}
       >
@@ -70,6 +70,7 @@ export default function App() {
         <option value="INR">INR</option>
       </select>
       <select
+        className="second-currency"
         value={secondCurrency}
         onChange={(e) => setSecondCurrency(e.target.value)}
       >
@@ -89,7 +90,7 @@ export default function App() {
 
 function Result({ currency, second }) {
   return (
-    <p>
+    <p className="result">
       {currency} {second}
     </p>
   );

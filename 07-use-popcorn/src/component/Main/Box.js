@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button";
+import Button from "../Button";
 
 export default function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import StarRating from "./StarRating/StarRating";
-import Loading from "./Loading";
+import StarRating from "../../StarRating/StarRating";
+import Loading from "../MovieList/Loading";
 
 export default function MovieDetails({
   selectedId,
